@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- include A-Frame -->
+	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<!-- include ar.js for A-Frame -->
+	<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+	<!-- for accessing animations in gltf files -->
+	<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+	<!-- create an a-frame fullscreen, ar capable scene -->
+	<a-scene embedded arjs>
+
+		<a-assets>
+			<img id="frame" src="img/frame.png">
+			<img id="one" src="img/1 girls.png">
+			<img id="two" src="img/2 clouds.png">
+			<img id="three" src="img/3.png">
+			<img id="four" src="img/4.png">
+			<img id="five" src="img/5.png">
+			<img id="six" src="img/6.png">
+			<img id="seven" src="img/7.png">
+			<img id="eight" src="img/8.png">
+			<img id="nine" src="img/9.png">
+			<img id="ten" src="img/10.png">
+			<img id="back" src="img/11.png">
+			<img id="left" src="img/11.png">
+			<img id="right" src="img/11.png">
+			<img id="top" src="img/top.png">
+			<img id="bottom" src="img/bottom.png">
+		</a-assets>
+
+
+		<!-- find custom marker -->
+		<a-marker type='pattern' url='pattern-marker-3.patt'>
+			<!-- build the content that will 'stick' to the marker-->
+
+			<!-- layers of portal -->
+
+			<a-curvedimage src="#back" height="1" radius=".5" position="0 .5 0" theta-start="-90" theta-length="180" rotation="90 0 0"></a-curvedimage>
+
+			<a-image src="#frame" material="alphaTest: 0.5" height="1" width="1" rotation="-90 0 0" position="0 .5 0"></a-image>
+			<a-image src="#one" material="alphaTest: 0.5" height="1" width="1" rotation="-90 0 0" position="0 .3 0"></a-image>
+			<a-image src="#two" material="alphaTest: 0.5" height=".5" width=".5" rotation="-90 0 0" position="0 .2 .3"></a-image>
+			<a-image src="#three" material="alphaTest: 0.5" height="1" width="1" rotation="-90 0 0" position="0 .3 0">
+
+			</a-image>
+			<a-image src="#four" material="alphaTest: 0.5" height=".5" width=".5" rotation="-90 0 0" position="0 .2 .3"></a-image>
+			<a-image src="#five" material="alphaTest: 0.5" height="1" width="1" rotation="-90 0 0" position="0 .3 0">
+
+				<a-animation attribute="position" dur="7000" from="0 .3 0" to="0 5 0" direction="alternate" repeat="indefinite">
+				</a-animation>
+
+			</a-image>
+			<a-image src="#six" material="alphaTest: 0.5" height=".5" width=".5" rotation="-90 0 0" position="0 .2 .3"></a-image>
+			<a-image src="#seven" material="alphaTest: 0.5" height="1" width="1" rotation="-90 0 0" position="0 .3 0"></a-image>
+			<a-image src="#eight" material="alphaTest: 0.5" height=".5" width=".5" rotation="-90 0 0" position="0 .2 .3"></a-image>
+			<a-image src="#nine" material="alphaTest: 0.5" height="1" width="1" rotation="-90 0 0" position="0 .3 0"></a-image>
+			<a-image src="#ten" material="alphaTest: 0.5" height=".5" width=".5" rotation="-90 0 0" position="0 .2 .3"></a-image>
+
+
+			<!-- inside of frame, play with the rotations and how the images themselves are rotated, my brain isn't working! -->
+			<a-image src="#right" material="alphaTest: 0.5" height="1" width=".5" rotation="-180 90 -90" position=".49 .25 0"></a-image>
+			<a-image src="#left" material="alphaTest: 0.5" height="1" width=".5" rotation="-0 90 -90" position="-.49 .25 0"></a-image>
+			<a-image src="#bottom" material="alphaTest: 0.5" height="1" width=".5" rotation="-0 0 90" position="0 .25 .49"></a-image>
+			<a-image src="#top" material="alphaTest: 0.5" height="1" width=".5" rotation="-180 0 90" position="0 .25 -.49"></a-image>
+
+			<!-- outside of frame-->
+			<a-plane material="side: double" color="#E4BE85" height=".5" width="1" rotation="-0 90 0" position=".51 .25 0"></a-plane>
+			<a-plane material="side: double" color="#E4BE85" height=".5" width="1" rotation="-0 90 0" position="-.51 .25 0"></a-plane>
+			<a-plane material="side: double" color="#E4BE85" height="1" width=".5" rotation="-0 0 90" position="0 .25 .51"></a-plane>
+			<a-plane material="side: double" color="#E4BE85" height="1" width=".5" rotation="-0 0 90" position="0 .25 -.51"></a-plane>
+
+		</a-marker>
+		<!-- create the camera to 'see' the 3d object. Here we give it defauly 0 0 0 position-->
+		<a-entity camera></a-entity>
+
+	</a-scene>
+</body>
+</html>
